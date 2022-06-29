@@ -12,24 +12,10 @@ function App() {
     },
 
     onSubmit: values => {
-      console.log('form:', values); 
-      if(!errors.email || !errors.password){
+      // console.log('form:', values); 
+      // if(!errors.email || !errors.password){
         alert('login succesful')
-      }
-      // else{
-      //   alert('keep trying')
-
-      // }
-      ///
-      ///
-      ///
-      ///
-      ///
-      ////
-
-      
-      
-      
+    
     },
 
     validate: values => {
@@ -55,14 +41,17 @@ function App() {
     <div>
       <form onSubmit={formik.handleSubmit}>
         <div>Email</div>
-        <input name="email" type="text" onChange = {formik.handleChange} value = {formik.values.email}/>
-        {formik.errors.email ? <div style = {{color:'red'}}> {formik.errors.email} </div>:null}
+        <input id = "emailField" name="email" type="text" onChange = {formik.handleChange} value = {formik.values.email}/>
+        {formik.errors.email ? <div id="emailError" style = {{color:'red'}}> {formik.errors.email} </div>:null}
         
         <div> Password </div>
-        <input name="password" type="text" onChange = {formik.handleChange} value = {formik.values.password} />
-        {formik.errors.password ? <div style = {{color:'red'}}> {formik.errors.password} </div>:null}
+        <input id = "pswField" name="password" type="text" onChange = {formik.handleChange} value = {formik.values.password} />
+        {formik.errors.password ? <div id = "pswError" style = {{color:'red'}}> {formik.errors.password} </div>:null}
+        <br/> 
+        
+        <button id = "submitBtn" type="submit">Submit</button>
 
-        <button type="submit">Submit</button>
+        
 
       </form>
     </div>
